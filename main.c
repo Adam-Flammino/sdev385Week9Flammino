@@ -1,8 +1,7 @@
 // Displays all running processes, allows user to select individual processes for more info
-// based on https://stackoverflow.com/questions/33266678/how-to-extract-info-in-linux-with-a-c-code-from-proc
 // Adam Flammino 4/25
 // SDEV385 week 9 assignment
-
+// Compiled with CLion, ran on Debian 9
 
 #include <stdlib.h>
 #include <string.h>
@@ -15,6 +14,7 @@
 
 /**
  * Takes process id, gives info from proc
+ * based on https://stackoverflow.com/questions/33266678/how-to-extract-info-in-linux-with-a-c-code-from-proc
  * @param argc = process id
  */
 void info(int argc) {
