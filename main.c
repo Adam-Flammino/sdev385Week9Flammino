@@ -13,6 +13,10 @@
 #include <fcntl.h>
 #include <stdbool.h>
 
+/**
+ * Takes process id, gives info from proc
+ * @param argc = process id
+ */
 void info(int argc) {
     printf("pid = %d\n", argc);
 
@@ -30,17 +34,21 @@ void info(int argc) {
     printf("parent pid = %d\n", ppid);
     fclose(f);
 }
+
+
 int main(){
-        int process;
-        int runAgain = 1;
-        while (runAgain != 0){
-            printf("Which process ID would you like more info on?\n");
-            scanf("%d",&process);
-            info(process);
-            printf("Run again? 0 for no, 1 for yes\n");
-            scanf("%d", &runAgain);
-        }
+    int process;
+    int runAgain = 1;
+    printf("Running processes:\n");
+    system("dir /proc | grep -o '[[:digit:]]*'"); //BASH command piped with grep to only print numbers- these are the PIDs
+    while (runAgain != 0){
+        printf("Which process ID would you like more info on?\n");
+        scanf("%d",&process);
+        info(process);
+        printf("Run again? 0 for no, 1 for yes\n");
+        scanf("%d", &runAgain);
+    }
 
 
-        return 0;
+    return 0;
 }
